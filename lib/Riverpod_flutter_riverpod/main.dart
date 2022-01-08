@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'UI/basket_page.dart';
 import 'UI/home_page.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyHomePage(),
+          '/basket_page': (context) => BasketPage(),
+        },
       ),
     );
   }

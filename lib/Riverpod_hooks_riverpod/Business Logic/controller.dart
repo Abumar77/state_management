@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_skillbox12/Provider/Data/model.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:state_management_skillbox12/Riverpod_hooks_riverpod/Data/model.dart';
 
-class BasketController with ChangeNotifier {
+final basketProvider = ChangeNotifierProvider((ref) => BasketController());
+
+class BasketController extends ChangeNotifier {
   Basket userBasket = Basket(products: [
     Item(0, 'Coca cola', 1, quantity: 0),
     Item(1, 'Pulpy', 2, quantity: 0),

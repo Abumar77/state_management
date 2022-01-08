@@ -15,27 +15,31 @@ class BasketPage extends StatelessWidget {
         padding: const EdgeInsets.all(1.0),
         child: Consumer<BasketController>(
           builder: (context, state, child) => ListView.builder(
-              itemCount: state.basket.products.length,
+              itemCount: state.userBasket.products.length,
               itemBuilder: (
                 BuildContext context,
                 int index,
               ) {
-                return ListTile(
-                  leading: Text('${state.basket.products[index].price} \$'),
-                  title: Text(state.basket.products[index].name),
-                  subtitle: Text('1 items you choose'),
-                  trailing: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      primary: Colors.white,
-                    ),
-                    onPressed: () {
-                      context.read<BasketController>().removeFromBasket(
-                          state.basket.products[index], index);
-                    },
-                    child: const Text('Remove Item'),
-                  ),
-                );
+                return state.userBasket.products[index].showInBasket
+                    ? ListTile(
+                        leading: Text(
+                            '${state.userBasket.products[index].price} \$'),
+                        title: Text(state.userBasket.products[index].name),
+                        subtitle: Text(
+                            '${state.userBasket.products[index].quantity} items you choose'),
+                        trailing: TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            primary: Colors.white,
+                          ),
+                          onPressed: () {
+                            context.read<BasketController>().removeFromBasket(
+                                state.userBasket.products[index], index);
+                          },
+                          child: const Text('Remove Item'),
+                        ),
+                      )
+                    : SizedBox();
               }),
         ),
       ),
