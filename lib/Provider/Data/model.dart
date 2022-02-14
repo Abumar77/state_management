@@ -1,7 +1,7 @@
 class Item {
   int id;
   String name;
-  double price;
+  int price;
   int quantity;
   bool showInBasket = false;
 
