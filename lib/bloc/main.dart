@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_management_skillbox12/bloc/Business%20Logic/cart/basket_bloc.dart';
-import 'package:state_management_skillbox12/bloc/Business%20Logic/catalog/catalog_cubit.dart';
+import 'package:state_management_skillbox12/bloc/business logic/cart/basket_bloc.dart';
 
-import 'UI/basket_page.dart';
-import 'UI/home_page.dart';
+import 'ui/basket_page.dart';
+import 'ui/home_page.dart';
+import 'business logic/cart/basket_event.dart';
 
 void main() {
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => BasketBloc(),
-      ),
-      BlocProvider(
-        create: (context) => CatalogCubit(),
-      ),
-    ],
-    child: MyApp(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BasketBloc(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,8 +36,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => MyHomePage(),
-        '/basket_page': (context) => BasketPage(),
+        '/': (context) => const MyHomePage(),
+        '/basket_page': (context) => const BasketPage(),
       },
     );
   }
