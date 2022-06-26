@@ -24,7 +24,7 @@ class BasketPage extends StatelessWidget {
                     ? ListTile(
                         leading: Text(
                             '${state.userBasket.products[index].price} \$'),
-                        title: Text("${state.userBasket.products[index].name}"),
+                        title: Text(state.userBasket.products[index].name),
                         subtitle: Text(
                             '${state.userBasket.products[index].quantity} items you choose'),
                         trailing: TextButton(

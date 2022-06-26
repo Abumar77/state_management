@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_management_skillbox12/bloc/business logic/cart/basket_bloc.dart';
-
-import 'ui/basket_page.dart';
-import 'ui/home_page.dart';
+import 'package:state_management_skillbox12/mobx/ui/basket_page.dart';
+import 'package:state_management_skillbox12/mobx/ui/home_page.dart';
 
 void main() {
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => BasketBloc(),
-        ),
-      ],
-      child: const MyApp(),
-    ),
+    const MyApp(),
   );
 }
 
@@ -35,8 +25,8 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MyHomePage(),
-        '/basket_page': (context) => const BasketPage(),
+        '/': (context) => MyHomePageMobx(),
+        '/basket_page': (context) => BasketPageMobx(),
       },
     );
   }

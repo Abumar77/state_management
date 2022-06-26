@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:equatable/equatable.dart';
 
 import '../../data/item_model.dart';
@@ -15,6 +17,7 @@ class BasketState extends Equatable {
   int totalSum;
   int itemsAdded;
 
+  @override
   List<Object?> get props =>
       [userBasket, availableProducts, totalSum, itemsAdded];
 

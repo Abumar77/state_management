@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state_management_skillbox12/cubit%20bloc/business%20logic/basket_cubit.dart';
-import 'package:state_management_skillbox12/cubit%20bloc/business%20logic/basket_cubit.dart';
 
 class MyHomePageCubit extends StatefulWidget {
   const MyHomePageCubit({Key? key}) : super(key: key);

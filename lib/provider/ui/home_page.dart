@@ -39,8 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 return ListTile(
                   leading: Text(
                       '${state.availableProducts.products[index].price} \$'),
-                  title:
-                      Text("${state.availableProducts.products[index].name}"),
+                  title: Text(state.availableProducts.products[index].name),
                   subtitle: Text(
                       '${state.availableProducts.products[index].quantity} items left'),
                   trailing: TextButton(

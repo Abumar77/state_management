@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => MyHomePage(),
+          '/': (context) => const MyHomePage(),
           '/basket_page': (context) => const BasketPage(),
         },
       ),

@@ -5,6 +5,8 @@ import 'package:state_management_skillbox12/riverpod hooks riverpod/Business%20L
 import 'package:state_management_skillbox12/riverpod hooks riverpod/Business%20Logic/scroll_controller.dart';
 
 class MyHomePage extends HookConsumerWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(basketProvider);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:state_management_skillbox12/riverpod hooks riverpod/Business%20Logic/controller.dart';
-import 'package:state_management_skillbox12/riverpod hooks riverpod/Business%20Logic/scroll_controller.dart';
 
 class BasketPage extends ConsumerWidget {
   const BasketPage({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class BasketPage extends ConsumerWidget {
     final state = ref.watch(basketProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text('RiverpodShop'),
+        title: const Text('RiverpodShop'),
         actions: [
           OutlinedButton(
             style: OutlinedButton.styleFrom(

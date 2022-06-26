@@ -1,7 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:state_management_skillbox12/bloc/Business%20Logic/cart/basket_state.dart';
 
 import '../data/model.dart';
 
@@ -20,8 +17,7 @@ class BasketCubit extends Cubit<dynamic> {
       emit(basket[item.id] = item);
       emit(totalSum = totalSum + basket[item.id]?.price);
     }
-    print(basket[item.id]);
-    print(totalSum);
+
     emit(catalog[item.id]?.quantity--);
   }
 
@@ -34,12 +30,10 @@ class BasketCubit extends Cubit<dynamic> {
       emit(totalSum = totalSum - basket[item.id]?.price);
     }
 
-    print(basket[item.id]);
-    print(totalSum);
     emit(catalog[item.id]?.quantity++);
   }
 
-  setCatalog(Map<int?, ItemCubit> Initialcatalog) {
-    emit(catalog = Initialcatalog);
+  setCatalog(Map<int?, ItemCubit> initialcatalog) {
+    emit(catalog = initialcatalog);
   }
 }
