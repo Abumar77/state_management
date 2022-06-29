@@ -1,6 +1,8 @@
-import 'package:state_management_skillbox12/mobx/logic/model.dart';
+import 'package:mobx/mobx.dart';
+import 'package:state_management_skillbox12/mobx/logic/item_value_mobx.dart';
 
-List<ItemValueMOBX> availableProductsInitial = [
+ObservableList<ItemValueMOBX> availableProductsInitial =
+    ObservableList<ItemValueMOBX>.of([
   ItemValueMOBX(0, 'Coca cola', 1, quantity: 41),
   ItemValueMOBX(1, 'Pulpy', 2, quantity: 20),
   ItemValueMOBX(2, 'Alpen Gold', 2, quantity: 100),
@@ -8,9 +10,9 @@ List<ItemValueMOBX> availableProductsInitial = [
   ItemValueMOBX(4, 'Mars', 1, quantity: 10),
   ItemValueMOBX(5, 'Whiskas', 2, quantity: 108),
   ItemValueMOBX(6, 'Milka', 1, quantity: 20),
-];
-
-List<ItemValueMOBX>? userBasketInitial = [
+]);
+ObservableList<ItemValueMOBX> userBasketInitial =
+    ObservableList<ItemValueMOBX>.of([
   ItemValueMOBX(0, 'Coca cola', 1, quantity: 0),
   ItemValueMOBX(1, 'Pulpy', 2, quantity: 0),
   ItemValueMOBX(2, 'Alpen Gold', 2, quantity: 0),
@@ -18,4 +20,4 @@ List<ItemValueMOBX>? userBasketInitial = [
   ItemValueMOBX(4, 'Mars', 1, quantity: 0),
   ItemValueMOBX(5, 'Whiskas', 2, quantity: 0),
   ItemValueMOBX(6, 'Milka', 1, quantity: 0),
-];
+]);

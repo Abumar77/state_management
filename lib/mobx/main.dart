@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_skillbox12/mobx/ui/basket_page.dart';
-import 'package:state_management_skillbox12/mobx/ui/home_page.dart';
+import 'package:state_management_skillbox12/mobx/ui/basket_page_mobx.dart';
+import 'package:state_management_skillbox12/mobx/ui/my_homepage_mobx.dart';
+import 'package:provider/provider.dart';
+
+import 'data/basket_mobx_base.dart';
 
 void main() {
   runApp(
@@ -18,16 +21,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Provider<BasketMobxStore>(
+      create: (_) => BasketMobxStore(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyHomePageMobx(),
+          '/basket_page': (context) => BasketPageMobx(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => MyHomePageMobx(),
-        '/basket_page': (context) => BasketPageMobx(),
-      },
     );
   }
 }
