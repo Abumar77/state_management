@@ -23,11 +23,11 @@ class BasketPageMobx extends StatelessWidget {
               })
         ],
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Observer(builder: (_) {
-              return Padding(
+      body: Observer(builder: (context) {
+        return SafeArea(
+          child: Column(
+            children: [
+              Padding(
                 padding: const EdgeInsets.all(1.0),
                 child: ListView.builder(
                     shrinkWrap: true,
@@ -41,10 +41,8 @@ class BasketPageMobx extends StatelessWidget {
                           ? ListTile(
                               leading: Text('${product.price} \$'),
                               title: Text(product.name.toString()),
-                              subtitle: Observer(builder: (_) {
-                                return Text(
-                                    '${product.quantity} items you choose');
-                              }),
+                              subtitle:
+                                  Text('${product.quantity} items you choose'),
                               trailing: TextButton(
                                 style: TextButton.styleFrom(
                                   backgroundColor: Colors.blue,
@@ -58,16 +56,14 @@ class BasketPageMobx extends StatelessWidget {
                             )
                           : Container();
                     }),
-              );
-            }),
-            Observer(builder: (_) {
-              return Center(
+              ),
+              Center(
                 child: Text("Total price ${store.totalSum}\$"),
-              );
-            })
-          ],
-        ),
-      ),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }
